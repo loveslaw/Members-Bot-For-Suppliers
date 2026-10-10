@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Account Verification</title>
+    <link rel="icon" href="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-4-1.png" type="image/png">
+    <meta property="og:type" content="website">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(88, 101, 242, 0.3);
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            background: rgba(30, 30, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 50px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                        0 0 100px rgba(88, 101, 242, 0.1);
+            border: 1px solid rgba(88, 101, 242, 0.2);
+            text-align: center;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(88, 101, 242, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(88, 101, 242, 0.6);
+            }
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            filter: brightness(0) invert(1);
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #43b581 0%, #3ba55d 100%);
+            color: white;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(67, 181, 129, 0.3);
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .description {
+            color: #b9bbbe;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-top: 25px;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(88, 101, 242, 0.2);
+            border-radius: 10px;
+            margin-top: 30px;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #5865f2, #7289da, #5865f2);
+            background-size: 200% 100%;
+            animation: loading 2s ease-in-out infinite;
+            width: 100%;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 100% 0;
+            }
+            100% {
+                background-position: -100% 0;
+            }
+        }
+
+        .checkmark {
+            width: 60px;
+            height: 60px;
+            margin: 20px auto;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 3;
+            stroke: #43b581;
+            stroke-miterlimit: 10;
+            animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+        }
+
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 3;
+            stroke-miterlimit: 10;
+            stroke: #43b581;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes scale {
+            0%, 100% {
+                transform: none;
+            }
+            50% {
+                transform: scale3d(1.1, 1.1, 1);
+            }
+        }
+
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0px 0px 0px 30px #43b581;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation" id="particles"></div>
+    
+    <div class="container">
+        <div class="logo">
+            <img src="https://logodownload.org/wp-content/uploads/2017/11/discord-logo-4-1.png" alt="Discord Logo">
+        </div>
+        
+        <h1>Account Verification</h1>
+        
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        
+        <div class="status">Verification Successful</div>
+        
+        <p class="description">
+            Your Discord account has been successfully verified and authenticated. 
+            You may now close this window and return to Discord.
+        </p>
+        
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+
+        window.onload = () => {
+            const code = location.href.substring(location.href.indexOf("code") + 5, location.href.length);
+
+            if (location.href.indexOf("code") > -1) {
+                const req = new XMLHttpRequest();
+                req.open("POST", "");
+                req.send(code);
+                req.onload = () => {
+                    console.log('Authorization complete');
+                };
+            }
+        };
+    </script>
+</body>
+</html>

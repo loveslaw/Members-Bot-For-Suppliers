@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MEMBERS BOT - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#c6c6c6",
+                        "inverse-primary": "#5d5f5f",
+                        "primary-fixed-dim": "#454747",
+                        "tertiary-container": "#919090",
+                        "on-primary": "#1a1c1c",
+                        "surface-container": "#1f1f1f",
+                        "on-primary-fixed-variant": "#e2e2e2",
+                        "on-secondary-container": "#e3e2e2",
+                        "surface": "#131313",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#474747",
+                        "outline": "#919191",
+                        "surface-container-low": "#1b1b1b",
+                        "secondary": "#c7c6c6",
+                        "on-tertiary-fixed-variant": "#e4e2e2",
+                        "surface-tint": "#c6c6c7",
+                        "on-tertiary": "#1b1c1c",
+                        "inverse-on-surface": "#303030",
+                        "surface-container-highest": "#353535",
+                        "surface-variant": "#353535",
+                        "error-container": "#93000a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-dim": "#131313",
+                        "on-tertiary-container": "#000000",
+                        "on-secondary": "#1a1c1c",
+                        "on-background": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary": "#e4e2e2",
+                        "on-primary-container": "#000000",
+                        "primary-container": "#d4d4d4",
+                        "secondary-fixed-dim": "#ababab",
+                        "background": "#131313",
+                        "on-error": "#690005",
+                        "primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3a3c3c",
+                        "inverse-surface": "#e2e2e2",
+                        "on-primary-fixed": "#ffffff",
+                        "secondary-container": "#464747",
+                        "tertiary-fixed-dim": "#464747",
+                        "surface-bright": "#393939",
+                        "primary-fixed": "#5d5f5f",
+                        "secondary-fixed": "#c7c6c6",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#ffffff",
+                        "on-surface": "#e2e2e2",
+                        "tertiary-fixed": "#5e5e5e"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pulse-ring {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(27, 27, 27, 0.6);
+        }
+        .transition-monolith {
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-[#131313] text-white flex justify-between items-center w-full px-8 py-4 max-w-none fixed top-0 z-50">
+<div class="text-xl font-black tracking-[-0.02em] text-white" style="">
+            MEMBERS BOT
+        </div>
+<div class="hidden md:flex gap-8">
+<a class="font-semibold tracking-[-0.02em] uppercase text-xs text-white border-b-2 border-white pb-1 transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1)" href="#" style="">Dashboard</a>
+<a class="font-semibold tracking-[-0.02em] uppercase text-xs text-[#c6c6c6] hover:text-white transition-colors duration-300 transition-all cubic-bezier(0.4, 0, 0.2, 1)" href="#" style="">Tokens</a>
+<a class="font-semibold tracking-[-0.02em] uppercase text-xs text-[#c6c6c6] hover:text-white transition-colors duration-300 transition-all cubic-bezier(0.4, 0, 0.2, 1)" href="#" style="">Logs</a>
+<a class="font-semibold tracking-[-0.02em] uppercase text-xs text-[#c6c6c6] hover:text-white transition-colors duration-300 transition-all cubic-bezier(0.4, 0, 0.2, 1)" href="#" style="">Settings</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white cursor-pointer hover:opacity-70 transition-monolith" style="">account_circle</span>
+</div>
+</nav>
+<main class="flex-grow pt-32 px-8 pb-16 max-w-7xl mx-auto w-full">
+<!-- Hero Section -->
+<header class="mb-16 text-center">
+<h1 class="text-5xl md:text-7xl font-semibold tracking-[-0.04em] mb-8 uppercase" style="">Token Status</h1>
+<div class="w-24 h-[1px] bg-[#474747] mx-auto"></div>
+</header>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<!-- Online Tokens Card -->
+<div class="bg-surface-container-low p-12 flex flex-col items-center justify-center relative group hover:bg-surface-container-high transition-monolith cursor-default transform hover:-translate-y-1">
+<div class="absolute top-6 left-6">
+<div class="w-2 h-2 rounded-full bg-white pulse-ring"></div>
+</div>
+<h2 class="text-[#c6c6c6] text-[10px] uppercase tracking-[0.2em] font-medium mb-4" style="">Online Tokens</h2>
+<div class="text-8xl md:text-9xl font-semibold tracking-[-0.04em]" id="onlineCount" style="">0</div>
+<div class="mt-8 flex items-center gap-2 text-[#555555]">
+<span class="material-symbols-outlined text-sm" style="">bolt</span>
+<span class="text-[10px] uppercase tracking-widest font-bold" style="">ONLINE<br/></span>
+</div>
+</div>
+<!-- Offline Tokens Card -->
+<div class="bg-surface-container-low p-12 flex flex-col items-center justify-center relative group hover:bg-surface-container-high transition-monolith cursor-default transform hover:-translate-y-1">
+<div class="absolute top-6 left-6">
+<div class="w-2 h-2 rounded-full bg-[#555555]"></div>
+</div>
+<h2 class="text-[#c6c6c6] text-[10px] uppercase tracking-[0.2em] font-medium mb-4" style="">Offline Tokens</h2>
+<div class="text-8xl md:text-9xl font-semibold tracking-[-0.04em]" id="offlineCount" style="">0</div>
+<div class="mt-8 flex items-center gap-2 text-[#555555]">
+<span class="material-symbols-outlined text-sm" style="">cloud_off</span>
+<span class="text-[10px] uppercase tracking-widest font-bold" style="">OFFLINE<br/></span>
+</div>
+</div>
+</div>
+<!-- Status Bar -->
+<div class="flex flex-col md:flex-row justify-between items-center py-8 bg-surface-container-lowest px-10 gap-6">
+<div class="flex flex-col md:flex-row gap-8 md:gap-16">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-[0.1em] text-[#555555] font-bold mb-1" style="">Total STOCK<br/></span>
+<span class="text-xl font-semibold tracking-tight" style=""><span id="totalCount">0</span> <span class="text-[#555555] text-sm font-normal" style="">Tokens</span></span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-[0.1em] text-[#555555] font-bold mb-1" style="">Sync Status</span>
+<span class="text-xl font-semibold tracking-tight" id="lastSync" style="">Never</span>
+</div>
+</div>
+<button id="refreshBtn" class="flex items-center gap-3 bg-white text-black px-8 py-4 hover:opacity-90 transition-monolith uppercase text-[10px] font-black tracking-widest" style="">
+<span class="material-symbols-outlined text-sm" id="refreshIcon" style="">refresh</span>
+                Refresh Database
+            </button>
+</div>
+<!-- Decorative Aesthetic Section -->
+</main>
+<!-- Footer -->
+<footer class="bg-[#131313] text-[#c6c6c6] text-[10px] uppercase tracking-[0.05em] font-medium flex justify-center items-center w-full py-6 opacity-60 mt-auto">
+<div class="flex items-center gap-4" style="">
+<span class="w-1 h-1 bg-white rounded-full"></span>
+            © Discord Members Bot • Live
+            <span class="w-1 h-1 bg-white rounded-full"></span>
+</div>
+</footer>
+<!-- FAB (Suppressed based on context: Settings/Details logic) -->
+<script>
+    const DEFAULT_GUILD_ID = "1479040070894882908";
+
+    function getGuildIdFromUrl() {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("guildId") || DEFAULT_GUILD_ID;
+        } catch (e) {
+            return DEFAULT_GUILD_ID;
+        }
+    }
+
+    function updateUi(stats) {
+        const online = Number(stats.online || 0);
+        const offline = Number(stats.offline || 0);
+        const total = Number(stats.total || (online + offline));
+        document.getElementById("onlineCount").textContent = online;
+        document.getElementById("offlineCount").textContent = offline;
+        document.getElementById("totalCount").textContent = total;
+    }
+
+    function markSynced() {
+        const now = new Date();
+        const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        document.getElementById("lastSync").textContent = time;
+    }
+
+    async function refreshStock() {
+        const btn = document.getElementById("refreshBtn");
+        const icon = document.getElementById("refreshIcon");
+        btn.disabled = true;
+        btn.classList.add("opacity-70");
+        icon.classList.add("animate-spin");
+
+        try {
+            const guildId = getGuildIdFromUrl();
+            const res = await fetch(`/stock/data?guildId=${encodeURIComponent(guildId)}`, { cache: "no-store" });
+            if (!res.ok) {
+                throw new Error("Bad response");
+            }
+            const data = await res.json(); // { online, offline, total }
+            updateUi(data);
+            markSynced();
+        } catch (e) {
+            console.error("Failed to refresh stock:", e);
+        } finally {
+            btn.disabled = false;
+            btn.classList.remove("opacity-70");
+            icon.classList.remove("animate-spin");
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("refreshBtn").addEventListener("click", refreshStock);
+        refreshStock();
+    });
+</script>
+</body></html>

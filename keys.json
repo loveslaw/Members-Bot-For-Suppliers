@@ -1,0 +1,22 @@
+[
+  {
+    "code": "NYZO-KLS7-49PR-KK42",
+    "amount": 9,
+    "type": "offline",
+    "createdBy": "1422443835354648609",
+    "createdAt": 1762330047719,
+    "redeemed": true,
+    "redeemedBy": "1422443835354648609",
+    "redeemedAt": 1762330126730
+  },
+  {
+    "code": "9AHF-G3EL-4SM5-X9FQ",
+    "amount": 1000,
+    "type": "offline",
+    "createdBy": "1434305277594829055",
+    "createdAt": 1762353579755,
+    "redeemed": true,
+    "redeemedBy": "1434305277594829055",
+    "redeemedAt": 1762353631331
+  }
+]
